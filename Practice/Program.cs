@@ -1,12 +1,11 @@
 ﻿using System;
 
-namespace PigLatin
+namespace practice
 {
     class Program
     {
-        public static void Main()
+        static void Main(string[] args)
         {
-            // your code goes here
             string firstWord = "simple ";
             string secondWord = "word";
 
@@ -18,15 +17,7 @@ namespace PigLatin
 
             Console.WriteLine(restWord + firstLetter + "ay");
             Console.WriteLine(secondRestWord + secondFirstLetter + "ay");
-            // leave this command at the end so your program does not close automatically
-            Console.ReadLine();
-        }
-        
-        public static string TranslateWord(string word)
-        {
-            // your code goes here
-            
-            return word;
+
         }
     }
 }
