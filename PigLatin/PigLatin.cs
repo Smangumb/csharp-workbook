@@ -7,26 +7,34 @@ namespace PigLatin
         public static void Main()
         {
             // your code goes here
-            string firstWord = "simple ";
-            string secondWord = "word";
+            System.Console.WriteLine("enter the phrase you want to translate:");
+            string input = Console.ReadLine().ToLower();
+            string output = "";
+            char[] punctuation = new char[] { ',', '?', '"' };
 
-            string firstLetter = firstWord.Substring(0,1);
-            string restWord = firstWord.Substring(1,5);
-
-            string secondFirstLetter = secondWord.Substring(0,1);
-            string secondRestWord = secondWord.Substring(1,3);
-
-            Console.WriteLine(restWord + firstLetter + "ay");
-            Console.WriteLine(secondRestWord + secondFirstLetter + "ay");
-            // leave this command at the end so your program does not close automatically
-            Console.ReadLine();
+            string[] words = input.Split(' ');
+            foreach (var item in words)
+            {
+                output += TranslateWord(item) + " ";
+            }
+            Console.WriteLine(output);
         }
-        
-        public static string TranslateWord(string word)
+
+
+        public static string TranslateWord(string input)
         {
             // your code goes here
-            
-            return word;
+            char[] vowels = new char[] { 'a', 'e', 'i', 'o', 'u' };
+            int firstLetterIndex = input.IndexOfAny(vowels);
+            string firstPart = input.Substring(0, firstLetterIndex);
+            string restWord = input.Substring(firstLetterIndex);
+            input = restWord + firstPart + "ay";
+
+            if (firstLetterIndex == 0)
+            {
+                input = restWord + "yay";
+            }
+            return input;
         }
     }
 }
