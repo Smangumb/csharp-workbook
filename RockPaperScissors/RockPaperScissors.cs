@@ -62,7 +62,6 @@ namespace RockPaperScissors
                 return "Hand Two Wins!";
             }
             return hand1 + ' ' + hand2;
-
         }
     }
 }
