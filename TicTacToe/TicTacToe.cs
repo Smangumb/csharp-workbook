@@ -5,7 +5,6 @@ namespace TicTacToe
     class Program
     {
         public static string playerTurn = "O";
-        // string playerTurn = (playerTurn == "X") ? "O" : "X";
         public static string[][] board = new string[][]
         {
             new string[] {" ", " ", " "},
@@ -43,14 +42,12 @@ namespace TicTacToe
             Console.WriteLine("Enter Column:");
             int column = int.Parse(Console.ReadLine());
             PlaceMark(row, column);
-
         }
 
         public static void PlaceMark(int row, int column)
         {
             // your code goes here
             board[row][column] = playerTurn;
-
         }
 
         public static bool CheckForWin()
@@ -69,7 +66,6 @@ namespace TicTacToe
         public static bool HorizontalWin()
         {
             // your code goes here
-            // return false;
             bool row1 = (board[0][0] == playerTurn && board[0][1] == playerTurn && board[0][2] == playerTurn);
             bool row2 = (board[1][0] == playerTurn && board[1][1] == playerTurn && board[1][2] == playerTurn);
             bool row3 = (board[2][0] == playerTurn && board[2][1] == playerTurn && board[2][2] == playerTurn);
@@ -91,7 +87,6 @@ namespace TicTacToe
             // your code goes here
             bool diagonal1 = (board[0][0] == playerTurn && board[1][1] == playerTurn && board[2][2] == playerTurn);
             bool diagonal2 = (board[0][2] == playerTurn && board[1][1] == playerTurn && board[2][0] == playerTurn);
-
             return (diagonal1 || diagonal2);
         }
 
