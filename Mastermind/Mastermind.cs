@@ -30,8 +30,29 @@ namespace Mastermind
             char[] guess = new char[4];
             CreateBoard();
             DrawBoard();
-            Console.WriteLine("Enter Guess:");
-            guess = Console.ReadLine().ToCharArray();
+            do
+            {
+                Console.WriteLine("Enter Guess:");
+                string input = Console.ReadLine();
+                guess = input.ToCharArray();
+                PlaceMark(guess);
+                DrawBoard();
+                numTry++;
+            } while (!CheckSolution(guess) && (numTry < allowedAttempts));
+            if (CheckSolution(guess))
+            {
+                System.Console.WriteLine("You win!");
+            }
+            else
+            {
+                System.Console.WriteLine("You lost!");
+            }
+
+            // System.Console.WriteLine(board[0][0]);
+            // foreach (var item in guess)
+            // {
+            //     System.Console.WriteLine(item);
+            // }
             //place balls on board 
             //check for solution
             //Give you hints
@@ -40,12 +61,29 @@ namespace Mastermind
 
 
             // leave this command at the end so your program does not close automatically
-            Console.ReadLine();
+            // Console.ReadLine();
         }
 
         public static bool CheckSolution(char[] guess)
         {
             // Your code here
+            for (int i = 0; i < guess.Length; i++)
+            {
+                if (guess[i] == solution[i])
+                {
+                    if (i == guess.Length - 1)
+                    {
+                        return true;
+                    }
+                    continue;
+
+                }
+                else
+                {
+                    break;
+                }
+            }
+
 
             return false;
         }
@@ -54,11 +92,6 @@ namespace Mastermind
         {
             // Your code here
             return " ";
-        }
-
-        public static void InsertCode(char[] guess)
-        {
-            // Your code here
         }
 
         public static void CreateBoard()
@@ -72,12 +105,21 @@ namespace Mastermind
                 }
             }
         }
-
         public static void DrawBoard()
         {
             for (var i = 0; i < board.Length; i++)
             {
                 Console.WriteLine("|" + String.Join("|", board[i]));
+            }
+
+        }
+
+        public static void PlaceMark(char[] guess)
+        {
+            // your code goes here
+            for (int i = 0; i < guess.Length; i++)
+            {
+                board[numTry][i] = guess[i].ToString();
             }
 
         }

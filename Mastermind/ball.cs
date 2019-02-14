@@ -9,6 +9,7 @@ namespace Mastermind
         public Ball(string letter)
         {
             this.letter = letter;
+
         }
     }
 }
