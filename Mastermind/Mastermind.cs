@@ -19,7 +19,7 @@ namespace Mastermind
         public static int numTry = 0;
 
         // test solution
-        public static char[] solution = new char[] { 'a', 'b', 'c', 'd' };
+        public static char[] solution = GenerateRandomCode();
 
         // game board
         public static string[][] board = new string[allowedAttempts][];
@@ -30,6 +30,7 @@ namespace Mastermind
             char[] guess = new char[4];
             CreateBoard();
             DrawBoard();
+
             do
             {
                 Console.WriteLine("Enter Guess:");
@@ -48,20 +49,6 @@ namespace Mastermind
                 System.Console.WriteLine("You lost!");
             }
 
-            // System.Console.WriteLine(board[0][0]);
-            // foreach (var item in guess)
-            // {
-            //     System.Console.WriteLine(item);
-            // }
-            //place balls on board 
-            //check for solution
-            //Give you hints
-            //Guess again
-            //Say you won and exit
-
-
-            // leave this command at the end so your program does not close automatically
-            // Console.ReadLine();
         }
 
         public static bool CheckSolution(char[] guess)
@@ -124,13 +111,15 @@ namespace Mastermind
 
         }
 
-        public static void GenerateRandomCode()
+        public static char[] GenerateRandomCode()
         {
+            char[] solution = new char[codeSize];
             Random rnd = new Random();
             for (var i = 0; i < codeSize; i++)
             {
                 solution[i] = letters[rnd.Next(0, letters.Length)];
             }
+            return solution;
         }
     }
 }
