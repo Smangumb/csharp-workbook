@@ -59,9 +59,10 @@ namespace Tower
         }
         public void MovePiece()
         {
+
             foreach (KeyValuePair<string, Tower> item in towers)
             {
-                
+                towers.Values.Pop();
             }
         }
     }
