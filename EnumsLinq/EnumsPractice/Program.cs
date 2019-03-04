@@ -6,16 +6,16 @@ namespace EnumsPractice
     {
         static void Main(string[] args)
         {
-            // Console.WriteLine("Hello World!");
-            // foreach (var item in Enum.GetValues(typeof(Months)))
-            // {
-            //     System.Console.WriteLine(item);
-            // }
+            Console.WriteLine("Hello World!");
+            foreach (var item in Enum.GetValues(typeof(Months)))
+            {
+                System.Console.WriteLine(item);
+            }
         }
-        // enum Months
-        // {
-        //     January, February, March, April, May, June, July, August, September, October, November, December
-        // }
+        enum Months
+        {
+            January, February, March, April, May, June, July, August, September, October, November, December
+        }
         Point point1 = new Point(0, 1);
         Point point2 = new Point(2, 2);
         public struct Point

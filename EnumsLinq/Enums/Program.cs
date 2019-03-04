@@ -12,10 +12,14 @@ namespace Enums
             // {
             //     System.Console.WriteLine(item);
             // }
-            // foreach (var item in Enum.GetValues(typeof(DaysWithNumbers)))
-            // {
-
-            // }
+            foreach (var item in Enum.GetValues(typeof(DaysWithNumbers)))
+            {
+                System.Console.WriteLine(item);
+            }
+            if (myBirthday == DaysWithNumbers.Friday)
+            {
+                System.Console.WriteLine();
+            }
 
         }
         enum Days

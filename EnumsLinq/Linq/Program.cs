@@ -16,23 +16,33 @@ namespace StudentList
             students.Add(new Student("Luke", "555-555-5555", "451 Brody Ln", -500));
 
             //your code here
-        }
+            IEnumerable<Student> negativeBalance = from currentStudent in students
+                                                   where currentStudent.Balance < 0
+                                                   select currentStudent;
 
+            Console.WriteLine("Students with a negative balance:");
+            foreach (Student currentStudent in negativeBalance)
+            {
+                Console.WriteLine(currentStudent.Name);
+            }
+
+        }
     }
 
-    public class Student
-    {
-        public string Name { get; set; }
-        public string Phone { get; set; }
-        public string Address { get; set; }
-        public int Balance { get; set; }
+}
 
-        public Student(string name, string phone, string address, int balance)
-        {
-            Name = name;
-            Phone = phone;
-            Address = address;
-            Balance = balance;
-        }
+public class Student
+{
+    public string Name { get; set; }
+    public string Phone { get; set; }
+    public string Address { get; set; }
+    public int Balance { get; set; }
+
+    public Student(string name, string phone, string address, int balance)
+    {
+        Name = name;
+        Phone = phone;
+        Address = address;
+        Balance = balance;
     }
 }
