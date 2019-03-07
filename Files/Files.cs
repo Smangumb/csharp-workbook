@@ -29,7 +29,7 @@ namespace Files
                     while (s != null)
                     {
                         Console.WriteLine(s);
-                        s = sr.ReadLine()
+                        s = sr.ReadLine();
                     }
                 }
             }
@@ -38,10 +38,6 @@ namespace Files
                 Console.WriteLine(ex.ToString());
             }
             return fileName;
-        }
-        public EditFile()
-        {
-
         }
     }
 }
